@@ -27,7 +27,8 @@
 */
 
 function journeyPlanner(locations, transportMode) {
-  
+    return Object.keys(locations)
+        .filter(location => locations[location].includes(transportMode));
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -43,24 +44,24 @@ const londonLocations = {
 };
 
 test("journeyPlanner function works - case 1", () => {
-  expect(journeyPlanner(londonLocations, "river boat")).toEqual([
-    "London Bridge",
-    "Greenwich",
-  ]);
+    expect(journeyPlanner(londonLocations, "river boat")).toEqual([
+        "London Bridge",
+        "Greenwich",
+    ]);
 });
 
 test("journeyPlanner function works - case 2", () => {
-  expect(journeyPlanner(londonLocations, "bus")).toEqual([
-    "Angel",
-    "Tower Bridge",
-    "Greenwich",
-  ]);
+    expect(journeyPlanner(londonLocations, "bus")).toEqual([
+        "Angel",
+        "Tower Bridge",
+        "Greenwich",
+    ]);
 });
 
 test("journeyPlanner function works - case 3", () => {
-  expect(journeyPlanner(londonLocations, "tube")).toEqual([
-    "Angel",
-    "London Bridge",
-    "Tower Bridge",
-  ])
+    expect(journeyPlanner(londonLocations, "tube")).toEqual([
+        "Angel",
+        "London Bridge",
+        "Tower Bridge",
+    ])
 });
